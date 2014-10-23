@@ -1,5 +1,8 @@
+
 seqwin
 ======
+
+Use it here: http://evolu8.github.io/seqwin/
 
 Collaborative, sharable sequence diagrams
 
