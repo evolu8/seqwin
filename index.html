@@ -19,7 +19,6 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/0.3.0/base64.min.js"></script>
 
-
         <!--[if lt IE 9]>
         <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
@@ -75,8 +74,6 @@ Andrew->>China: I am good thanks!</textarea>
                             </tr>
                         </table>
 
-                        <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
                         <script type="text/javascript">
                             function setup_editor(div) {
 
@@ -85,10 +82,6 @@ Andrew->>China: I am good thanks!</textarea>
                                 var theme_div = div.find(".theme");
                                 var download_link = div.find('.download');
 
-                                // Setup the editor diagram
-                                // var editor = ace.edit(editor_div.get(0));
-                                // editor.setTheme("ace/theme/crimson_editor");
-                                // editor.getSession().setMode("ace/mode/asciidoc");
                                 editor_div.click = function() {
                                     _.debounce(on_change(), 100);
                                 };
@@ -107,17 +100,20 @@ Andrew->>China: I am good thanks!</textarea>
                                 });
 
                                 theme_div.change(on_change);
-                                if (location.hash){
-                                var payload = location.hash.substr(1);
-                                var zip = new JSZip();
-                                zip.load(payload, {base64:true});
-                                var unzipped = zip.generate({type:"string"});
-                                unzipped = unzipped.substr(unzipped.indexOf("temp")+4);
-                                var content = unzipped.substr(0, unzipped.indexOf("eof"));
+                                if (location.hash) {
+                                    var payload = location.hash.substr(1);
+                                    var zip = new JSZip();
+                                    zip.load(payload, {
+                                        base64 : true
+                                    });
+                                    var unzipped = zip.generate({
+                                        type : "string"
+                                    });
+                                    unzipped = unzipped.substr(unzipped.indexOf("temp") + 4);
+                                    var content = unzipped.substr(0, unzipped.indexOf("eof"));
 
-                                $(".editor").val(content)
+                                    $(".editor").val(content)
                                 }
-
 
                                 on_change();
 
@@ -125,14 +121,16 @@ Andrew->>China: I am good thanks!</textarea>
                                 $("textarea").click(_.debounce(editor_div.click, 100));
                                 $("textarea").change(_.debounce(editor_div.click, 100));
 
-
                                 function on_change() {
                                     try {
                                         var zip = new JSZip();
                                         var str = $(".editor").val();
                                         var diagram = Diagram.parse(str);
                                         var zipped = zip.file('temp', str + "eof");
-                                        window.location.hash = zip.generate('temp', {type:"base64", compression: "DEFLATE"});
+                                        window.location.hash = zip.generate('temp', {
+                                            type : "base64",
+                                            compression : "DEFLATE"
+                                        });
 
                                         // Clear out old diagram
                                         diagram_div.html('');
@@ -156,8 +154,6 @@ Andrew->>China: I am good thanks!</textarea>
                                             annotation.row = err.loc.first_line - 1;
                                             annotation.column = err.loc.first_column;
                                         }
-                                        //editor.getSession().setAnnotations([annotation]);
-                                        //throw err;
                                     }
                                 }
 
@@ -165,10 +161,7 @@ Andrew->>China: I am good thanks!</textarea>
 
 
                             $(document).ready(function() {
-                                // Example diagrams
-                                //$('.diagram').sequenceDiagram();
 
-                                // Setup all the editors
                                 setup_editor($('#demo'));
 
                             });
