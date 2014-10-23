@@ -1,83 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <head>
+        <meta charset='utf-8'>
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+        <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.2/raphael-min.js"></script>
+        <script src="http://d1n0x3qji82z53.cloudfront.net/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
-    <!--[if lt IE 9]>
-    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min.js"></script>
+        <script src="http://bramp.github.io/js-sequence-diagrams/sequence-diagram-min.js"></script>
+        <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+        <script src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+        <script src="https://togetherjs.com/togetherjs-min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/0.3.0/base64.min.js"></script>
 
-    <title>Seqwin by evolu8</title>
-  </head>
 
-  <body>
-    <header>
-      <div class="inner">
-        <h1>Seqwin</h1>
-        <h2>Collaborative, sharable sequence diagrams</h2>
-        <a href="https://github.com/evolu8/seqwin" class="button"><small>View project on</small> GitHub</a>
-      </div>
-    </header>
+        <!--[if lt IE 9]>
+        <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
 
-    <div id="content-wrapper">
-      <div class="inner clearfix">
-        <section id="main-content">
-          <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
+        <title>Seqwin by evolu8</title>
+    </head>
 
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
+    <body>
+        <header>
+            <div class="inner">
+                <h1>Seqwin</h1>
+                <h2>Collaborative, sharable sequence diagrams</h2>
+                <a href="https://github.com/evolu8/seqwin" class="button"><small>View project on</small> GitHub</a>
+            </div>
+        </header>
 
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
+        <div id="content-wrapper">
+            <div class="inner clearfix">
+                <section id="main-content">
 
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
+                    <p>
+                        This is really just a cobbling togather of some real projects. Primarily (plus some usual suspects):
+                        <ul>
 
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
+                            <li>
+                                <a href="http://bramp.github.io/js-sequence-diagrams/">JS Sequence Diagrams</a>
+                            </li>
+                            <li>
+                                <a href="https://togetherjs.com/">TogetherJS</a>
+                            </li>
 
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
+                        </ul>
+                        <button onclick="TogetherJS(this); return false;">
+                            Start TogetherJS
+                        </button>
+                    </p>
 
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
+                    <section id="demo">
+                        <table align="center" class="inner">
+                            <tr>
+                                <td><h3>Demo. Try editing me below</h3>
+                                <div class="editor-wrapper">
+                                    <textarea style = "width:400px" class="editor">Andrew->China: Says Hello
+Note right of China: China thinks\nabout it
+China-->Andrew: How are you?
+Andrew->>China: I am good thanks!</textarea>
+                                </div> Theme:
+                                <select class="theme">
+                                    <option value="simple">Simple</option>
+                                    <option value="hand" selected>Hand drawn</option>
+                                </select> | <a href="#" class="download">Download as SVG</a></td>
+                                <td class="diagram">This should be a diagram! If you don't see it you need Javascript enabled</td>
+                            </tr>
+                        </table>
 
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
+                        <h3><a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
 
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
+                        <script type="text/javascript">
+                            function setup_editor(div) {
 
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
+                                var editor_div = div.find(".editor");
+                                var diagram_div = div.find(".diagram");
+                                var theme_div = div.find(".theme");
+                                var download_link = div.find('.download');
 
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
+                                // Setup the editor diagram
+                                // var editor = ace.edit(editor_div.get(0));
+                                // editor.setTheme("ace/theme/crimson_editor");
+                                // editor.getSession().setMode("ace/mode/asciidoc");
+                                editor_div.click = function() {
+                                    _.debounce(on_change(), 100);
+                                };
 
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-        </section>
+                                download_link.click(function(ev) {
+                                    var svg = diagram_div.find('svg')[0];
+                                    var width = parseInt(svg.width.baseVal.value);
+                                    var height = parseInt(svg.height.baseVal.value);
+                                    var data = editor.getValue();
+                                    var xml = '<?xml version="1.0" encoding="utf-8" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 20010904//EN" "http://www.w3.org/TR/2001/REC-SVG-20010904/DTD/svg10.dtd"><svg xmlns="http://www.w3.org/2000/svg" width="' + width + '" height="' + height + '" xmlns:xlink="http://www.w3.org/1999/xlink"><source><![CDATA[' + data + ']]></source>' + svg.innerHTML + '</svg>';
 
-        <aside id="sidebar">
-          <a href="https://github.com/evolu8/seqwin/zipball/master" class="button">
-            <small>Download</small>
-            .zip file
-          </a>
-          <a href="https://github.com/evolu8/seqwin/tarball/master" class="button">
-            <small>Download</small>
-            .tar.gz file
-          </a>
+                                    var a = $(this);
+                                    a.attr("download", "diagram.svg");
+                                    // TODO I could put title here
+                                    a.attr("href", "data:image/svg+xml," + encodeURIComponent(xml));
+                                });
 
-          <p class="repo-owner"><a href="https://github.com/evolu8/seqwin"></a> is maintained by <a href="https://github.com/evolu8">evolu8</a>.</p>
+                                theme_div.change(on_change);
+                                if (location.hash){
+                                var payload = location.hash.substr(1);
+                                var zip = new JSZip();
+                                zip.load(payload, {base64:true});
+                                var unzipped = zip.generate({type:"string"});
+                                unzipped = unzipped.substr(unzipped.indexOf("temp")+4);
+                                var content = unzipped.substr(0, unzipped.indexOf("eof"));
 
-          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
-        </aside>
-      </div>
-    </div>
+                                $(".editor").val(content)
+                                }
 
-  
-  </body>
+
+                                on_change();
+
+                                $("textarea").keyup(_.debounce(editor_div.click, 100));
+                                $("textarea").click(_.debounce(editor_div.click, 100));
+                                $("textarea").change(_.debounce(editor_div.click, 100));
+
+
+                                function on_change() {
+                                    try {
+                                        var zip = new JSZip();
+                                        var str = $(".editor").val();
+                                        var diagram = Diagram.parse(str);
+                                        var zipped = zip.file('temp', str + "eof");
+                                        window.location.hash = zip.generate('temp', {type:"base64", compression: "DEFLATE"});
+
+                                        // Clear out old diagram
+                                        diagram_div.html('');
+
+                                        var options = {
+                                            theme : theme_div.val(),
+                                            scale : 1
+                                        };
+
+                                        // Draw
+                                        diagram.drawSVG(diagram_div.get(0), options);
+
+                                    } catch(err) {
+                                        var annotation = {
+                                            type : "error", // also warning and information
+                                            column : 0,
+                                            row : 0,
+                                            text : err.message
+                                        };
+                                        if ( err instanceof Diagram.ParseError) {
+                                            annotation.row = err.loc.first_line - 1;
+                                            annotation.column = err.loc.first_column;
+                                        }
+                                        //editor.getSession().setAnnotations([annotation]);
+                                        //throw err;
+                                    }
+                                }
+
+                            }
+
+
+                            $(document).ready(function() {
+                                // Example diagrams
+                                //$('.diagram').sequenceDiagram();
+
+                                // Setup all the editors
+                                setup_editor($('#demo'));
+
+                            });
+                        </script>
+
+                    </section>
+
+                    <aside id="sidebar">
+                        <a href="https://github.com/evolu8/seqwin/zipball/master" class="button"> <small>Download</small> .zip file </a>
+                        <a href="https://github.com/evolu8/seqwin/tarball/master" class="button"> <small>Download</small> .tar.gz file </a>
+
+                        <p class="repo-owner">
+                            <a href="https://github.com/evolu8/seqwin"></a> is maintained by <a href="https://github.com/evolu8">evolu8</a>.
+                        </p>
+
+                        <p>
+                            This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+                        </p>
+                    </aside>
+            </div>
+        </div>
+
+    </body>
 </html>
