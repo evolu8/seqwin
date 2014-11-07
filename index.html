@@ -138,6 +138,11 @@ Andrew->>China: I am good thanks!</textarea>
                                             type : "base64",
                                             compression : "DEFLATE"
                                         });
+                                        $.get("./template.html", function(data){
+                                            var tmpl = _.template(data.content);
+                                            $("#downloadToTHML").href(tmpl.({url:location.url}));
+                                        })
+                                        
 
                                         // Clear out old diagram
                                         diagram_div.html('');
