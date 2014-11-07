@@ -140,7 +140,7 @@ Andrew->>China: I am good thanks!</textarea>
                                         });
                                         $.get("./template.html", function(data){
                                             var tmpl = _.template(data.content);
-                                            $("#downloadToTHML").href(tmpl.({url:location.url}));
+                                            $("#downloadToTHML").attr("href", tmpl.({url:location.url}));
                                         })
                                         
 
