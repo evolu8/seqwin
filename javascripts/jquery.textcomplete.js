@@ -577,6 +577,7 @@ if (typeof jQuery === 'undefined') {
     },
 
     _setScroll: function () {
+      return
       var $activeEl = this._getActiveElement();
       var itemTop = $activeEl.position().top;
       var itemHeight = $activeEl.outerHeight();
