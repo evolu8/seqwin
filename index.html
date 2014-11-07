@@ -127,24 +127,7 @@ Andrew->>China: I am good thanks!</textarea>
 
                                 on_change();
                                 
-                                $('textarea').textcomplete([
-
-    { // tech companies
-        words: ['apple', 'google', 'facebook', 'github'],
-        match: /\b(\w{2,})$/,
-        search: function (term, callback) {
-            callback($.map(this.words, function (word) {
-                return word.indexOf(term) === 0 ? word : null;
-            }));
-        },
-        index: 0,
-        replace: function (word) {
-            return word + ' ';
-        }
-    }
-]);
-
-                                //$("textarea").keyup(_.debounce(editor_div.click, 100));
+                                $("textarea").keyup(_.debounce(on_change, 100));
                                 //$("textarea").click(_.debounce(editor_div.click, 100));
                                 //$("textarea").change(_.debounce(editor_div.click, 100));
 
