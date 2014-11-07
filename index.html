@@ -54,7 +54,7 @@
                         <button onclick="TogetherJS(this); return false;">
                             Collaborate
                         </button>
-                        <a download="sequin-launcher.html" href="data:text/plain;charset=utf-8,poooopy">
+                        <a id="downloadToTHML" download="sequin-launcher.html" href="data:text/plain;charset=utf-8,poooopy">
                             Download sharable file
                         </a>
                     </p>
@@ -140,7 +140,7 @@ Andrew->>China: I am good thanks!</textarea>
                                         });
                                         $.get("./template.html", function(data){
                                             var tmpl = _.template(data.content);
-                                            $("#downloadToTHML").attr("href", tmpl({url:location.url}));
+                                            $("#downloadToTHML").attr("href", "data:text/plain;charset=utf-8," + document.encodeURIComponent(tmpl({url:location.url})));
                                         })
                                         
 
