@@ -178,6 +178,8 @@ Andrew->>China: I am good thanks!</textarea>
                             $(document).ready(function() {
 
                                 setup_editor($('#demo'));
+                                setInterval(function(){$("textarea").height( $("textarea")[0].scrollHeight );}, 1);
+                                
                                 $('textarea').textcomplete([{
                                     match: /(^|\s)(\w{2,})$/,
                                     search: function (term, callback) {
