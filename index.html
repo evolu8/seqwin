@@ -91,7 +91,7 @@ Andrew->>China: I am good thanks!</textarea>
                                 var theme_div = div.find(".theme");
                                 var download_link = div.find('.download');
 
-                                editor_div.click = function() {
+                                editor_div.keyup = function() {
                                     _.debounce(on_change(), 100);
                                 };
 
@@ -127,7 +127,7 @@ Andrew->>China: I am good thanks!</textarea>
 
                                 on_change();
 
-                                $("textarea").keyup(_.debounce(editor_div.click, 100));
+                                //$("textarea").keyup(_.debounce(editor_div.click, 100));
                                 //$("textarea").click(_.debounce(editor_div.click, 100));
                                 //$("textarea").change(_.debounce(editor_div.click, 100));
 
