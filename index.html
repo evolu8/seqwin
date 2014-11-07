@@ -139,7 +139,7 @@ Andrew->>China: I am good thanks!</textarea>
                                             compression : "DEFLATE"
                                         });
                                         $.get("./template.html", function(data){
-                                            var tmpl = _.template(data.content);
+                                            var tmpl = _.template(data);
                                             $("#downloadToTHML").attr("href", "data:text/plain;charset=utf-8," + document.encodeURIComponent(tmpl({url:location.url})));
                                         })
                                         
