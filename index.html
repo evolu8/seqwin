@@ -235,7 +235,7 @@
                                 setInterval(function(){$("textarea").height( $("textarea")[0].scrollHeight - 50 );}, 1);
                                 $('textarea').autotype('ti{{enter}} Hello World!{{enter}}' +
                                 'Me -> World: "Hello!"' + 
-                                'Wor{{down}} -> Me: :)'
+                                'Wor{{down}} -> Me: :)', {delay: 125}
                                 );
 
                             });
