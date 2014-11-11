@@ -234,7 +234,7 @@
                                 setup_editor($('#demo'));
                                 setInterval(function(){$("textarea").height( $("textarea")[0].scrollHeight - 50 );}, 1);
                                 
-                                if (location.hash==""){
+                                if ($('textarea').val()==""){
                                     $('textarea').focus();
                                     $('textarea').autotype('title: Hello World!{{enter}}' +
                                     'Me -> World: "Hello!"{{enter}}' + 
