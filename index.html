@@ -120,6 +120,10 @@ Andrew->>China: I am good thanks!</textarea>
                     <p>If you want total control and security, then host the dependancies yourself and use your own copy of the TogetherJS server (this really isn't required, as your data doesn't go to Mozilla either)</p>
 
                         <script type="text/javascript">
+                        
+                        var seqwin = {};
+                        window.seqwin = seqwin;
+                        
                             function setup_editor(div) {
 
                                 var editor_div = div.find(".editor");
@@ -171,7 +175,7 @@ Andrew->>China: I am good thanks!</textarea>
                                     try {
                                         var zip = new JSZip();
                                         var str = $(".editor").val();
-                                        var diagram = Diagram.parse(str);
+                                        seqwin = Diagram.parse(str);
                                         var zipped = zip.file('temp', str + "eof");
                                         window.location.hash = zip.generate('temp', {
                                             type : "base64",
@@ -192,7 +196,7 @@ Andrew->>China: I am good thanks!</textarea>
                                         };
 
                                         // Draw
-                                        diagram.drawSVG(diagram_div.get(0), options);
+                                        seqwin.drawSVG(diagram_div.get(0), options);
 
                                     } catch(err) {
                                         var annotation = {
