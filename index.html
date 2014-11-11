@@ -188,10 +188,11 @@ Andrew->>China: I am good thanks!</textarea>
                                         return word.indexOf(term) === 0 ? word : null;
                                 }));
                                 },
+                                
                                 replace: function (word) {  
                                     return word + ' ';
                                     }
-                                }]);
+                                }], { appendTo: $('body') });
 
                             });
                         </script>
