@@ -20,7 +20,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.4.0/jszip.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Base64/0.3.0/base64.min.js"></script>
         <script src="./javascripts/jquery.textcomplete.js"></script>
-        
+        <script src="./javascripts/jquery.autotype.js"></script>        
         <style>
             /* Sample */
 
@@ -102,10 +102,7 @@
                             <tr>
                                 <td><h3>Demo. Try editing me below</h3>
                                 <div class="editor-wrapper">
-                                    <textarea style = "width:400px; height:90%px; padding:20px; line-height:2;" class="editor">Andrew->China: Says Hello
-Note right of China: China thinks\nabout it
-China-->Andrew: How are you?
-Andrew->>China: I am good thanks!</textarea>
+                                    <textarea style = "width:400px; height:90%px; padding:20px; line-height:2;" class="editor"></textarea>
                                 </div> Theme:
                                 <select class="theme">
                                     <option value="simple" selected>Simple</option>
@@ -200,7 +197,7 @@ Andrew->>China: I am good thanks!</textarea>
                                         
                                         //adding textcomplete
                                 $('textarea').textcomplete([{
-                                    match: /(^|\s)(\w{2,})$/,
+                                    match: /(^|\s)(\w{1,})$/,
                                     search: function (term, callback) {
                                     var words = ['title:', 'note over', 'note right'].concat(_.pluck(seqwin.actors, "alias"));
                                     callback($.map(words, function (word) {
@@ -236,7 +233,10 @@ Andrew->>China: I am good thanks!</textarea>
 
                                 setup_editor($('#demo'));
                                 setInterval(function(){$("textarea").height( $("textarea")[0].scrollHeight - 50 );}, 1);
-
+                                $('textarea').autotype('ti{{enter}} Hello World!{{enter}}' +
+                                'Me -> World: "Hello!"' + 
+                                'Wor{{down}} -> Me: :)'
+                                );
 
                             });
                         </script>
