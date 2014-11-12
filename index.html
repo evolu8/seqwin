@@ -197,7 +197,7 @@
                                         
                                         //adding textcomplete
                                 $('textarea').textcomplete([{
-                                    match: /(^|\s)(\w{1,})$/,
+                                    match: /(^)(\w{1,})$/,
                                     search: function (term, callback) {
                                     var words = ['title:', 'note over', 'note right'].concat(_.pluck(seqwin.actors, "alias"));
                                     callback($.map(words, function (word) {
