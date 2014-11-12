@@ -866,7 +866,7 @@ if (typeof jQuery === 'undefined') {
     // Update the textarea with the given value and strategy.
     select: function (value, strategy) {
       var pre = this.getTextFromHeadToCaret();
-      var post = this.el.value.substring(this.el.selectionEnd + 1);
+      var post = this.el.value.substring(this.el.selectionEnd);
       var newSubstr = strategy.replace(value);
       if ($.isArray(newSubstr)) {
         post = newSubstr[1] + post;
